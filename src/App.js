@@ -7,6 +7,9 @@ import Register from './Components/Register';
 import Login from './Components/Login';
 import {auth} from './firbase';
 import React, {useState, useEffect} from 'react';
+// import { GoogleAuthProvider } from "firebase/auth";
+// import { getAuth, signInWithPopup } from "firebase/auth";
+
 
 function App() {
 
@@ -21,6 +24,8 @@ function App() {
       }
     });
   }, [])
+
+
 
   return (
     <div className="App">

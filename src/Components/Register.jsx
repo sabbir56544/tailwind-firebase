@@ -1,9 +1,41 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { auth } from "../firbase";
+import { GoogleAuthProvider } from "firebase/auth" // google sign in
+import { FacebookAuthProvider } from "firebase/auth";
+
 
 const Register = () => {
+
+ // google sign in
+  const googleSignIn = () => {
+    const provider = new GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+    .then(function (result) {
+      console.log(result.user);
+      history.push("/");
+    }).catch(function (error) {
+      console.log(error);
+    });
+  }
+
+  // login with facebookSignIn
+ 
+
+  const facebookSignIn = () => {
+    const provider = new FacebookAuthProvider();
+    auth
+      .signInWithPopup(provider)
+      .then(function (result) {
+        console.log(result.user);
+        history.push("/");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+  
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -23,36 +55,46 @@ const Register = () => {
 
   let history = useHistory();
   const onSubmit = async (e) => {
-      e.preventDefault();
+    e.preventDefault();
 
-      if (user.name === "" || user.email === "" || user.password === "" || user.confirmPassword === "") {
-        alert("Please fill all the fields");
-      } else if (user.password !== user.confirmPassword) {
-        alert("Password does not match");
-      }else{
-        try{
-            // user create using firebase
-            const result = await auth.createUserWithEmailAndPassword(user.email, user.password);
-            console.log(result);
-            alert("Signup Successful");
-            history.push("/login");
-        }catch(error){
-            alert("Signup Failed");
-        }
-
-        setUser({
-            name: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-        })
+    if (
+      user.name === "" ||
+      user.email === "" ||
+      user.password === "" ||
+      user.confirmPassword === ""
+    ) {
+      alert("Please fill all the fields");
+    } else if (user.password !== user.confirmPassword) {
+      alert("Password does not match");
+    } else {
+      try {
+        // user create using firebase
+        const result = await auth.createUserWithEmailAndPassword(
+          user.email,
+          user.password
+        );
+        console.log(result);
+        alert("Signup Successful");
+        history.push("/login");
+      } catch (error) {
+        alert("Signup Failed");
       }
-  }
+
+      setUser({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
+    }
+  };
   return (
     <div>
       <div className="container py-16">
         <div className="max-w-lg mx-auto shadow px-6 py-7 rounded overflow-hidden">
-          <h2 className="text-2xl uppercase font-medium mb-1">create an acocunt</h2>
+          <h2 className="text-2xl uppercase font-medium mb-1">
+            create an acocunt
+          </h2>
           <p className="text-gray-600 mb-6 text-sm">
             Register here if you don't have account
           </p>
@@ -124,9 +166,12 @@ const Register = () => {
                 className="text-primary focus:ring-0 rounded-sm cursor-pointer"
                 required
               />
-              <label for="agreement" className="text-gray-600 ml-3 cursor-pointer">
+              <label
+                htmlFor="agreement"
+                className="text-gray-600 ml-3 cursor-pointer"
+              >
                 I have read and agree to the
-                <a href="#" className="text-primary" >
+                <a href="#" className="text-primary">
                   terms & conditions
                 </a>
               </label>
@@ -149,18 +194,20 @@ const Register = () => {
             </div>
           </div>
           <div className="mt-4 flex gap-4">
-            <a
+            <Link
+            onClick={facebookSignIn}
               href="#"
               className="block w-1/2 py-2 text-center text-white bg-blue-800 rounded uppercase font-roboto font-medium text-sm"
             >
               Facebook
-            </a>
-            <a
+            </Link>
+            <Link
+              onClick={googleSignIn}
               href="#"
               className="block w-1/2 py-2 text-center text-white bg-yellow-600 rounded uppercase font-roboto font-medium text-sm"
             >
               Google
-            </a>
+            </Link>
           </div>
           <p className="mt-4 text-gray-600 text-center">
             Already have an account?{" "}

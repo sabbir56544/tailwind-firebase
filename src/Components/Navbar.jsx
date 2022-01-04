@@ -8,102 +8,102 @@ const Navbar = ({user}) => {
   
   return (
     <div>
-      <nav class="bg-gray-800 hidden lg:block">
-        <div class="container">
-          <div class="flex">
-            <div class="px-8 py-4 bg-primary flex items-center cursor-pointer group relative">
-              <span class="text-white">
-                <i class="fas fa-bars"></i>
+      <nav className="bg-gray-800 hidden lg:block">
+        <div className="container">
+          <div className="flex">
+            <div className="px-8 py-4 bg-primary flex items-center cursor-pointer group relative">
+              <span className="text-white">
+                <i className="fas fa-bars"></i>
               </span>
-              <span class="capitalize ml-2 text-white">All categories</span>
+              <span className="capitalize ml-2 text-white">All categories</span>
 
-              <div class="absolute left-0 top-full w-full bg-white shadow-md py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed">
+              <div className="absolute left-0 top-full w-full bg-white shadow-md py-3 invisible opacity-0 group-hover:opacity-100 group-hover:visible transition duration-300 z-50 divide-y divide-gray-300 divide-dashed">
                 <a
                   href="#"
-                  class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
+                  className="px-6 py-3 flex items-center hover:bg-gray-100 transition"
                 >
                   <img
                     src="images/icons/bed.svg"
-                    class="w-5 h-5 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
-                  <span class="ml-6 text-gray-600 text-sm">Bedroom</span>
+                  <span className="ml-6 text-gray-600 text-sm">Bedroom</span>
                 </a>
 
                 <a
                   href="#"
-                  class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
+                  className="px-6 py-3 flex items-center hover:bg-gray-100 transition"
                 >
                   <img
                     src="images/icons/sofa.svg"
-                    class="w-5 h-5 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
-                  <span class="ml-6 text-gray-600 text-sm">Sofa</span>
+                  <span className="ml-6 text-gray-600 text-sm">Sofa</span>
                 </a>
 
                 <a
                   href="#"
-                  class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
+                  className="px-6 py-3 flex items-center hover:bg-gray-100 transition"
                 >
                   <img
                     src="images/icons/office.svg"
-                    class="w-5 h-5 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
-                  <span class="ml-6 text-gray-600 text-sm">Office</span>
+                  <span className="ml-6 text-gray-600 text-sm">Office</span>
                 </a>
 
                 <a
                   href="#"
-                  class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
+                  className="px-6 py-3 flex items-center hover:bg-gray-100 transition"
                 >
                   <img
                     src="images/icons/terrace.svg"
-                    class="w-5 h-5 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
-                  <span class="ml-6 text-gray-600 text-sm">Outdoor</span>
+                  <span className="ml-6 text-gray-600 text-sm">Outdoor</span>
                 </a>
 
                 <a
                   href="#"
-                  class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
+                  className="px-6 py-3 flex items-center hover:bg-gray-100 transition"
                 >
                   <img
                     src="images/icons/bed-2.svg"
-                    class="w-5 h-5 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
-                  <span class="ml-6 text-gray-600 text-sm">Mattress</span>
+                  <span className="ml-6 text-gray-600 text-sm">Mattress</span>
                 </a>
 
                 <a
                   href="#"
-                  class="px-6 py-3 flex items-center hover:bg-gray-100 transition"
+                  className="px-6 py-3 flex items-center hover:bg-gray-100 transition"
                 >
                   <img
                     src="images/icons/restaurant.svg"
-                    class="w-5 h-5 object-contain"
+                    className="w-5 h-5 object-contain"
                   />
-                  <span class="ml-6 text-gray-600 text-sm">Sofa</span>
+                  <span className="ml-6 text-gray-600 text-sm">Sofa</span>
                 </a>
               </div>
             </div>
 
-            <div class="flex items-center justify-between flex-grow pl-12">
-              <div class="flex items-center space-x-6 text-base capitalize">
+            <div className="flex items-center justify-between flex-grow pl-12">
+              <div className="flex items-center space-x-6 text-base capitalize">
                 <a
                   href="index.html"
-                  class="text-gray-200 hover:text-white transition"
+                  className="text-gray-200 hover:text-white transition"
                 >
                   Home
                 </a>
                 <a
                   href="shop.html"
-                  class="text-gray-200 hover:text-white transition"
+                  className="text-gray-200 hover:text-white transition"
                 >
                   Shop
                 </a>
-                <a href="#" class="text-gray-200 hover:text-white transition">
+                <a href="#" className="text-gray-200 hover:text-white transition">
                   About us
                 </a>
-                <a href="#" class="text-gray-200 hover:text-white transition">
+                <a href="#" className="text-gray-200 hover:text-white transition">
                   Contact us
                 </a>
               </div>
@@ -113,7 +113,7 @@ const Navbar = ({user}) => {
                 user?
                 
                   <button
-                    class="ml-auto justify-self-end text-gray-200 hover:text-white transition"
+                    className="ml-auto justify-self-end text-gray-200 hover:text-white transition"
                     onClick={() => {
                       auth.signOut();
                       history.push("/login");
@@ -130,7 +130,7 @@ const Navbar = ({user}) => {
                 <>
                   <Link
                     to="/login"
-                    class="ml-auto justify-self-end text-gray-200 hover:text-white transition"
+                    className="ml-auto justify-self-end text-gray-200 hover:text-white transition"
                   >
                     Login/Register
                   </Link>
@@ -143,7 +143,7 @@ const Navbar = ({user}) => {
 
       <div className="fixed w-full border-t border-gray-200 shadow-sm bg-white py-3 bottom-0 left-0 flex justify-around items-start px-6 lg:hidden z-40">
         <a
-          href="javascript:void(0)"
+          href="#"
           className="block text-center text-gray-700 hover:text-primary transition relative"
         >
           <div className="text-2xl" id="menuBar">
